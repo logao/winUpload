@@ -1,4 +1,5 @@
 该工具用以上传csv文件至 SQL Server DB，文件上传前需要在工具中注册文件类。
+配置的信息都在src/main/resources/connection.properties 下，布置在Linux的时候注意修改文件上传路径以及SQL Server DB 用户名密码。
 
 文件类：
   1. 所有可上传的文件都在包 com.ctrip.vac.tool.winupload.dataschema 中
