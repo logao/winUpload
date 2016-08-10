@@ -28,7 +28,7 @@ public class ServicePage {
 	static File file;
 	static List<String> dataList;
 	static List<String> sql_dataList;
-	
+	static String issueMessage;
 
 	static DataSchema ds;
 	static int maxFileSize = 5000 * 1024;
@@ -71,7 +71,11 @@ public class ServicePage {
 					}
 					
 					// 文件落地写入
-					fi.write(file) ;					
+					try {
+						fi.write(file) ;
+					} catch (Exception e) {
+						return 4;
+					}
 					
 					try {
 						ds = WinUploadCommon.getDataSchema(file.getName().substring(0,file.getName().lastIndexOf(".")));
@@ -107,9 +111,19 @@ public class ServicePage {
         for (int i=0; i<dataList.size(); i++) {
         	for(int j=0; j<ds.getColumnNumber(); j++) {
         		try {
-        			params[i][j] = dataList.get(i).split(",")[j];
+        			if (dataList.get(i).split(",")[j]=="") {
+        				params[i][j] = null;
+        			} else {
+        				params[i][j] = dataList.get(i).split(",")[j];
+        			}
         		} catch (Exception e) {
-        			return 3;
+        			if (j+1==ds.getColumnNumber()) {
+        				params[i][j] = null;
+        				continue;
+        			} else {
+        				issueMessage = "问题字段在第"+String.valueOf(i+1) +"行，第"+String.valueOf(j)+"列" ;
+        				return 3;
+        			}
         		}
         	}
         }
@@ -243,9 +257,9 @@ public class ServicePage {
 	public static List<String> getSql_dataList() {
 		return sql_dataList;
 	}
-
-	public static void setSql_dataList(List<String> sql_dataList) {
-		ServicePage.sql_dataList = sql_dataList;
+	
+	public static String getIssueMessage() {
+		return issueMessage;
 	}
 
 }

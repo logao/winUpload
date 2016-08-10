@@ -2,7 +2,7 @@ package com.ctrip.vac.tool.winupload.dataschema;
 
 import com.ctrip.vac.tool.winupload.dataschema.meta.DataSchema;
 
-public class ab_hotel_price_upload extends DataSchema {
+public class ab_hotel_price extends DataSchema {
 	public String provinceName;
 	public String cityName;
 	public String hotelID;

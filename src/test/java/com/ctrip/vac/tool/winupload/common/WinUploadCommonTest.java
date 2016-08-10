@@ -10,7 +10,7 @@ import com.ctrip.vac.tool.winupload.dataschema.meta.DataSchema;
 public class WinUploadCommonTest {
 
 	@Test
-	public void testGetDataSchema() {
+	public void testGetDataSchema() throws Exception {
 		
 		DataSchema caect = WinUploadCommon.getDataSchema("CubeAbtestEdmConfigTmp");
 		DataSchema hch = WinUploadCommon.getDataSchema("HwCoreHotelid");

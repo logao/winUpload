@@ -30,8 +30,13 @@
 			break;		
 		case 3:
 			out.println("文件格式有问题,该文件正确的输入格式为<br>");
-			out.println(ServicePage.getDs().getColumnListNameWithType());
-			break;					
+			out.println(ServicePage.getDs().getColumnListNameWithType()+"<br>");
+			out.println(ServicePage.getIssueMessage()+"<br>");
+			
+			break;
+		case 4:
+			out.println("上传的文件为空，或者文件写入路径不存在");
+			break;				
 	} 
 	
 %>

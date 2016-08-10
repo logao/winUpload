@@ -23,25 +23,14 @@ public class WinUploadCommon {
 		return map;
 	}
 
-	public static DataSchema getDataSchema(String className) {
+	public static DataSchema getDataSchema(String className) throws Exception {
 		return getDataSchema("com.ctrip.vac.tool.winupload.dataschema", className);
 	}
 	
-	public static DataSchema getDataSchema(String packageName, String className) {
+	public static DataSchema getDataSchema(String packageName, String className) throws Exception {
 		DataSchema ds = null;
-		
-		try {
-			Class<?> ds_cls =  Class.forName(packageName+"."+className);
-			ds = (DataSchema) ds_cls.newInstance();
-			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-		
+		Class<?> ds_cls =  Class.forName(packageName+"."+className);
+		ds = (DataSchema) ds_cls.newInstance();
 		return ds;
 	}
 	

@@ -2,7 +2,7 @@ package com.ctrip.vac.tool.winupload.dataschema;
 
 import com.ctrip.vac.tool.winupload.dataschema.meta.DataSchema;
 
-public class spcial_optionid extends DataSchema {
+public class optionid extends DataSchema {
 	public String type;
 	public Long id;
 	public String stdate;
