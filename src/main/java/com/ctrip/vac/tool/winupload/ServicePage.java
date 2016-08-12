@@ -143,7 +143,7 @@ public class ServicePage {
 		try {
 			qr.update(conn, sql);
 		} catch (Exception e) {
-			e.printStackTrace();
+			// first drop always has some issue 
 		} finally {
 			DbUtils.closeQuietly(conn);
 		}
