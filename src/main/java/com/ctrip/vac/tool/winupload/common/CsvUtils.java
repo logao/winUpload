@@ -78,9 +78,13 @@ public class CsvUtils {
      * 
      * @param file csv文件(路径+文件)
      * @return
+     * @throws IOException 
      */
-    public static List<String> importCsv(File file, boolean needFirstLineYn){
+    public static List<String> importCsv(File file, boolean needFirstLineYn) throws IOException{
         List<String> dataList=new ArrayList<String>();
+        String csvSrcEncode = WinUploadCommon.getResource("connection").get("csvSrcEncode");
+        String csvTgtEncode = WinUploadCommon.getResource("connection").get("csvTgtEncode");
+        
         
         BufferedReader br=null;
         try { 
@@ -90,7 +94,7 @@ public class CsvUtils {
             
             while ((line = br.readLine()) != null) {
             	if (row>0 || needFirstLineYn) { 
-            		dataList.add(line);
+            		dataList.add(new String(line.getBytes(csvSrcEncode), csvTgtEncode));
             	}
             	row++;
             }

@@ -20,6 +20,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.ctrip.vac.tool.winupload.common.CsvUtils;
+import com.ctrip.vac.tool.winupload.common.IOCVUtils;
 import com.ctrip.vac.tool.winupload.common.WinUploadCommon;
 import com.ctrip.vac.tool.winupload.dataschema.meta.DataSchema;
 
@@ -59,23 +60,30 @@ public class ServicePage {
 			List<?> fileItems = upload.parseRequest(request);
 			Iterator<?> i = fileItems.iterator();
 			
+			File tmpFile;
+			
 			while (i.hasNext ()) {
 				FileItem fi = (FileItem)i.next();
 				if ( !fi.isFormField () ) {
 					String fileName = fi.getName();
 					// 写入文件
 					if( fileName.lastIndexOf("\\") >= 0 ){
+						tmpFile = new File(filePath,fileName.substring( fileName.lastIndexOf("\\"))+"_tmp") ;
 						file = new File(filePath,fileName.substring( fileName.lastIndexOf("\\"))) ;
 					}else{
+						tmpFile = new File(filePath,fileName.substring(fileName.lastIndexOf("\\")+1)+"_tmp") ;
 						file = new File(filePath,fileName.substring(fileName.lastIndexOf("\\")+1)) ;
 					}
 					
 					// 文件落地写入
 					try {
-						fi.write(file) ;
+						fi.write(tmpFile) ;
 					} catch (Exception e) {
 						return 4;
 					}
+					
+					IOCVUtils.changeEncoding(tmpFile, file);
+					
 					
 					try {
 						ds = WinUploadCommon.getDataSchema(file.getName().substring(0,file.getName().lastIndexOf(".")));

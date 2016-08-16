@@ -1,6 +1,7 @@
 package com.ctrip.vac.tool.winupload.common;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class CsvUtilsTest {
     }
     
     @Test
-    public void testImportCsv()  {
+    public void testImportCsv() throws IOException  {
         List<String> dataList=CsvUtils.importCsv(new File("D:/tmp/tmp_upload_lg.csv"),false);
         if(dataList!=null && !dataList.isEmpty()){
             for(String data : dataList){
@@ -32,7 +33,7 @@ public class CsvUtilsTest {
     }
     
     @Test
-    public void testImportCsvWithANSI()  {
+    public void testImportCsvWithANSI() throws IOException  {
     	CsvUtilsTest.class.getSuperclass().getFields();    	
     	
         List<String> dataList=CsvUtils.importCsv(new File("D:\tmp\tmp_upload_lg.csv"),true);
