@@ -94,6 +94,8 @@ public class CsvUtils {
             
             while ((line = br.readLine()) != null) {
             	if (row>0 || needFirstLineYn) { 
+            		
+            		// 这步似乎对文件级的编码转换不起作用，编码转换应该在ServicePage中的IOCVUtils.changeEncoding做
             		dataList.add(new String(line.getBytes(csvSrcEncode), csvTgtEncode));
             	}
             	row++;

@@ -51,7 +51,7 @@ public class WinUploadCommon {
 	}
 
 	public enum EnumJvDateType {
-	    STRING, INT, LONG;
+	    STRING, INT, LONG, DOUBLE;
 	
 	}
 	public static String getDbDataType(String columnName, String jvDataType) {
@@ -66,6 +66,8 @@ public class WinUploadCommon {
 				return "int";
 			case LONG:
 				return "bigint";
+			case DOUBLE:
+				return "decimal(10,2)";
 			default:
 				if (columnName.endsWith("date")) {
 					return "date";
