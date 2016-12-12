@@ -3,10 +3,19 @@ package com.ctrip.vac.tool.winupload.dataschema;
 import com.ctrip.vac.tool.winupload.dataschema.meta.DataSchema;
 
 public class vs_eid_not_in extends DataSchema {
-	public String  eid;
+	public String date;
+	public String eid;
 	public String emp_name;
 	public String groupname;
 	
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
 	public String getEid() {
 		return eid;
 	}
@@ -33,7 +42,8 @@ public class vs_eid_not_in extends DataSchema {
 
 	@Override
 	public String getValueString() {
-		return eid + "," +
+		return  date + "," +
+	            eid + "," +
 				emp_name + "," +
 				groupname;
 	}

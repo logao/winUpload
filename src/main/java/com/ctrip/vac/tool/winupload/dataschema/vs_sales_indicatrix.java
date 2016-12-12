@@ -3,62 +3,60 @@ package com.ctrip.vac.tool.winupload.dataschema;
 import com.ctrip.vac.tool.winupload.dataschema.meta.DataSchema;
 
 public class vs_sales_indicatrix extends DataSchema {
-
-	public int year_num;
-	public int month_num;
-	public int day_num;
-	public String groupname;
-	public int grade;
+    public String date;
+    public String group_order;
+    public String group_name;
+    public String grade_order;
+    public String grade_name;
 	public double indicatrix;
-	
-	
-	public String getGroupname() {
-		return groupname;
+
+	public String getDate() {
+		return date;
 	}
 
 
-	public void setGroupname(String groupname) {
-		this.groupname = groupname;
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 
-	public int getYear_num() {
-		return year_num;
+	public String getGroup_order() {
+		return group_order;
 	}
 
 
-	public void setYear_num(int year_num) {
-		this.year_num = year_num;
+	public void setGroup_order(String group_order) {
+		this.group_order = group_order;
 	}
 
 
-	public int getMonth_num() {
-		return month_num;
+	public String getGroup_name() {
+		return group_name;
 	}
 
 
-	public void setMonth_num(int month_num) {
-		this.month_num = month_num;
+	public void setGroup_name(String group_name) {
+		this.group_name = group_name;
 	}
 
 
-	public int getDay_num() {
-		return day_num;
+	public String getGrade_order() {
+		return grade_order;
 	}
 
 
-	public void setDay_num(int day_num) {
-		this.day_num = day_num;
+	public void setGrade_order(String grade_order) {
+		this.grade_order = grade_order;
 	}
 
 
-	public int getGrade() {
-		return grade;
+	public String getGrade_name() {
+		return grade_name;
 	}
 
 
-	public void setGrade(int grade) {
-		this.grade = grade;
+	public void setGrade_name(String grade_name) {
+		this.grade_name = grade_name;
 	}
 
 
@@ -74,12 +72,12 @@ public class vs_sales_indicatrix extends DataSchema {
 
 	@Override
 	public String getValueString() {
-		return year_num + "," +
-		month_num + "," +
-		day_num + "," +
-		groupname + "," +
-		grade + "," +
-		indicatrix;
+		return date + "," +
+				group_order + "," +
+				group_name + "," +
+				grade_order + "," +
+				grade_name + "," +
+				indicatrix;
 	}
 
 }
