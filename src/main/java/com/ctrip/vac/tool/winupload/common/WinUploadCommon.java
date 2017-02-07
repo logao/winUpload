@@ -67,7 +67,7 @@ public class WinUploadCommon {
 			case LONG:
 				return "bigint";
 			case DOUBLE:
-				return "decimal(10,4)";
+				return "decimal(12,4)";
 			default:
 				if (columnName.endsWith("date")) {
 					return "date";
