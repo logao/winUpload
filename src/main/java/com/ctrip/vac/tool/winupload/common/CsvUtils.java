@@ -11,18 +11,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**   
- * CSV²Ù×÷(µ¼³öºÍµ¼Èë)
+ * CSVæ“ä½œ(å¯¼å‡ºå’Œå¯¼å…¥)
  *
- * @author ÁÖ¼ÆÇÕ
+ * @author æ—è®¡é’¦
  * @version 1.0 Jan 27, 2014 4:30:58 PM   
  */
 public class CsvUtils {
     public String aa;
     /**
-     * µ¼³ö
+     * å¯¼å‡º
      * 
-     * @param file csvÎÄ¼ş(Â·¾¶+ÎÄ¼şÃû)£¬csvÎÄ¼ş²»´æÔÚ»á×Ô¶¯´´½¨
-     * @param dataList Êı¾İ
+     * @param file csvæ–‡ä»¶(è·¯å¾„+æ–‡ä»¶å)ï¼Œcsvæ–‡ä»¶ä¸å­˜åœ¨ä¼šè‡ªåŠ¨åˆ›å»º
+     * @param dataList æ•°æ®
      * @return
      */
     public static boolean exportCsv(File file, List<String> dataList){
@@ -74,9 +74,9 @@ public class CsvUtils {
     }
     
     /**
-     * µ¼Èë
+     * å¯¼å…¥
      * 
-     * @param file csvÎÄ¼ş(Â·¾¶+ÎÄ¼ş)
+     * @param file csvæ–‡ä»¶(è·¯å¾„+æ–‡ä»¶)
      * @return
      * @throws IOException 
      */
@@ -95,7 +95,7 @@ public class CsvUtils {
             while ((line = br.readLine()) != null) {
             	if (row>0 || needFirstLineYn) { 
             		
-            		// Õâ²½ËÆºõ¶ÔÎÄ¼ş¼¶µÄ±àÂë×ª»»²»Æğ×÷ÓÃ£¬±àÂë×ª»»Ó¦¸ÃÔÚServicePageÖĞµÄIOCVUtils.changeEncoding×ö
+            		// è¿™æ­¥ä¼¼ä¹å¯¹æ–‡ä»¶çº§çš„ç¼–ç è½¬æ¢ä¸èµ·ä½œç”¨ï¼Œç¼–ç è½¬æ¢åº”è¯¥åœ¨ServicePageä¸­çš„IOCVUtils.changeEncodingåš
             		dataList.add(new String(line.getBytes(csvSrcEncode), csvTgtEncode));
             	}
             	row++;
