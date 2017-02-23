@@ -3,19 +3,21 @@ package com.ctrip.vac.tool.winupload.dataschema;
 import com.ctrip.vac.tool.winupload.dataschema.meta.DataSchema;
 
 /**
- * Created by longgao on 2017/2/21.
+ * Created by bzhu on 2017/2/23.
  */
 public class complaintscategory_cs1009 extends DataSchema{
     public int ProductTypeID;
     public String SubReason;
     public String SubShortName;
     public String Process;
+	public int CustomerPrice;
 	
     public String getValueString() {
         return ProductTypeID + "," +
                 SubReason + "," +
                 SubShortName + "," +
-                Process;
+                Process + "," +
+				CustomerPrice;
     }
 
     public int getProductTypeID() {
@@ -50,4 +52,12 @@ public class complaintscategory_cs1009 extends DataSchema{
         Process = process;
     }
 
+	public int getCustomerPrice() {
+        return CustomerPrice;
+    }
+
+    public void setCustomerPrice(int customerPrice) {
+        CustomerPrice = customerPrice;
+    }
+	
 }
