@@ -11,15 +11,15 @@ import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;  
 import java.nio.charset.Charset;  
 
-/** IO ¹¤¾ßÀà */  
+/** IO å·¥å…·ç±» */  
 public class IOCVUtils {  
-  /** Ô´ÎÄ¼ş±àÂë */  
+  /** æºæ–‡ä»¶ç¼–ç  */  
   public static String sourceEncoding = "GBK";  
-  /** Ä¿±ê±àÂë */  
+  /** ç›®æ ‡ç¼–ç  */  
   public static String targetEncoding = "UTF-8";  
 
   /**  
-   * ÎÄ¼şÄÚÈİ×ª±àÂë  
+   * æ–‡ä»¶å†…å®¹è½¬ç¼–ç   
    * @param sourceFile  
    * @param targetFile  
    * @throws UnsupportedEncodingException  
@@ -41,7 +41,7 @@ public class IOCVUtils {
           fout = new FileOutputStream(targetFile);  
           fcin = fin.getChannel();  
           fcout = fout.getChannel();  
-          ByteBuffer buffer = ByteBuffer.allocateDirect(1024);  
+          ByteBuffer buffer = ByteBuffer.allocateDirect(5120);  
           while (true) {  
               buffer.clear();  
               int r = fcin.read(buffer);  
@@ -72,7 +72,7 @@ public class IOCVUtils {
   }  
 
   /**  
-   * ÎÄ¼şÄÚÈİ×ª±àÂë  
+   * æ–‡ä»¶å†…å®¹è½¬ç¼–ç   
    * @param sourceFile  
    * @param targetFile  
    * @throws UnsupportedEncodingException  
@@ -86,11 +86,11 @@ public class IOCVUtils {
   }  
 
   /**  
-   * ÎÄ¼şÄÚÈİ×ª±àÂë  
+   * æ–‡ä»¶å†…å®¹è½¬ç¼–ç   
    * @param sourceFile  
    * @param targetFile  
-   * @param sourceEncoding Ô´ÎÄ¼ş±àÂë Ä¬ÈÏÔ´ÎÄ¼şµÄÏµÍ³´æ´¢±àÂë System.getProperty("file.encoding");  
-   * @param targetEncoding Ä¿±ê±àÂë Ä¬ÈÏutf-8  
+   * @param sourceEncoding æºæ–‡ä»¶ç¼–ç  é»˜è®¤æºæ–‡ä»¶çš„ç³»ç»Ÿå­˜å‚¨ç¼–ç  System.getProperty("file.encoding");  
+   * @param targetEncoding ç›®æ ‡ç¼–ç  é»˜è®¤utf-8  
    * @throws UnsupportedEncodingException  
    * @throws FileNotFoundException  
    * @throws IOException  
