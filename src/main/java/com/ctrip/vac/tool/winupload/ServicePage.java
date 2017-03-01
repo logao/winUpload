@@ -66,7 +66,7 @@ public class ServicePage {
 				FileItem fi = (FileItem)i.next();
 				if ( !fi.isFormField () ) {
 					String fileName = fi.getName();
-					// Ğ´ÈëÎÄ¼ş
+					// å†™å…¥æ–‡ä»¶
 					if( fileName.lastIndexOf("\\") >= 0 ){
 						tmpFile = new File(filePath,fileName.substring( fileName.lastIndexOf("\\"))+"_tmp") ;
 						file = new File(filePath,fileName.substring( fileName.lastIndexOf("\\"))) ;
@@ -75,7 +75,7 @@ public class ServicePage {
 						file = new File(filePath,fileName.substring(fileName.lastIndexOf("\\")+1)) ;
 					}
 					
-					// ÎÄ¼şÂäµØĞ´Èë
+					// æ–‡ä»¶è½åœ°å†™å…¥
 					try {
 						fi.write(tmpFile) ;
 					} catch (Exception e) {
@@ -92,7 +92,7 @@ public class ServicePage {
 						return 2;
 					}
 					
-					// ÌáÈ¡csvÎÄ¼şµÄÃ¿ĞĞÊı¾İ
+					// æå–csvæ–‡ä»¶çš„æ¯è¡Œæ•°æ®
 					dataList=CsvUtils.importCsv(file,needFirstLineYn);				
 					
 					return 0;
@@ -129,7 +129,7 @@ public class ServicePage {
         				params[i][j] = null;
         				continue;
         			} else {
-        				issueMessage = "ÎÊÌâ×Ö¶ÎÔÚµÚ"+String.valueOf(i+1) +"ĞĞ£¬µÚ"+String.valueOf(j)+"ÁĞ" ;
+        				issueMessage = "é—®é¢˜å­—æ®µåœ¨ç¬¬"+String.valueOf(i+1) +"è¡Œï¼Œç¬¬"+String.valueOf(j)+"åˆ—" ;
         				return 3;
         			}
         		}

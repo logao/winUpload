@@ -1,3 +1,4 @@
+
 package com.ctrip.vac.tool.winupload.dataschema;
 
 import com.ctrip.vac.tool.winupload.dataschema.meta.DataSchema;
@@ -61,3 +62,4 @@ public class complaintscategory_cs1009 extends DataSchema{
     }
 	
 }
+
