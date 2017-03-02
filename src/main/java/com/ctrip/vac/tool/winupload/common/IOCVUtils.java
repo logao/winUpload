@@ -41,7 +41,7 @@ public class IOCVUtils {
           fout = new FileOutputStream(targetFile);  
           fcin = fin.getChannel();  
           fcout = fout.getChannel();  
-          ByteBuffer buffer = ByteBuffer.allocateDirect(5120);  
+          ByteBuffer buffer = ByteBuffer.allocateDirect(1024*20);  
           while (true) {  
               buffer.clear();  
               int r = fcin.read(buffer);  
