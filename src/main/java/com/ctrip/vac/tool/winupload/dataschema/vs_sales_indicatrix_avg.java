@@ -6,6 +6,8 @@ public class vs_sales_indicatrix_avg extends DataSchema {
     public String date;
     public int group_order;
     public String group_name;
+    public int go;
+    public String gn;
 	public double indicatrix;
 	
 	public String getDate() {
@@ -40,6 +42,21 @@ public class vs_sales_indicatrix_avg extends DataSchema {
 		this.indicatrix = indicatrix;
 	}
 
+	public int getGo() {
+		return go;
+	}
+
+	public void setGo(int go) {
+		this.go = go;
+	}
+
+	public String getGn() {
+		return gn;
+	}
+
+	public void setGn(String gn) {
+		this.gn = gn;
+	}
 
 	@Override
 	public String getValueString() {

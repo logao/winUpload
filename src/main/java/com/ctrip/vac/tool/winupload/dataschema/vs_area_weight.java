@@ -5,7 +5,7 @@ import com.ctrip.vac.tool.winupload.dataschema.meta.DataSchema;
 public class vs_area_weight extends DataSchema {
 
 	public String area;
-	public double weight;
+	public String weight;
 	
 	public String getArea() {
 		return area;
@@ -15,11 +15,11 @@ public class vs_area_weight extends DataSchema {
 		this.area = area;
 	}
 
-	public double getWeight() {
+	public String getWeight() {
 		return weight;
 	}
 
-	public void setWeight(double weight) {
+	public void setWeight(String weight) {
 		this.weight = weight;
 	}
 
