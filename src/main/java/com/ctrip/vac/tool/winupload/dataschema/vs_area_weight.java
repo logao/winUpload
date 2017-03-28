@@ -6,6 +6,7 @@ public class vs_area_weight extends DataSchema {
 
 	public String area;
 	public String weight;
+	public int od;
 	
 	public String getArea() {
 		return area;
@@ -23,10 +24,20 @@ public class vs_area_weight extends DataSchema {
 		this.weight = weight;
 	}
 
+
+	public int getOd() {
+		return od;
+	}
+
+	public void setOd(int od) {
+		this.od = od;
+	}
+
 	@Override
 	public String getValueString() {
 		return area + "," +
-				weight;
+				weight + "," +
+				od;
 	}
 
 }
