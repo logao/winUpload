@@ -1,13 +1,10 @@
 package com.ctrip.vac.tool.winupload.dataschema.meta;
 
+import com.ctrip.vac.tool.winupload.common.WinUploadCommon;
+
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-
-import com.ctrip.vac.tool.winupload.common.WinUploadCommon;
+import java.util.*;
 
 public abstract class DataSchema {
 	
@@ -93,5 +90,19 @@ public abstract class DataSchema {
 	
 	public abstract String getValueString();
 	
-	
+ 	public static  String createString (Object[] args) {
+ 		String res="";
+ 		boolean firstColumn = true;
+ 		for(Object o: args) {
+ 		    if(firstColumn) {
+				res = o.toString();
+			} else {
+				res += "," + o.toString();
+			}
+			firstColumn = false;
+		}
+		return res;
+	}
+
+
 }
