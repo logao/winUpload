@@ -1,5 +1,17 @@
 package com.ctrip.vac.tool.winupload;
 
+import com.ctrip.vac.tool.winupload.common.CsvUtils;
+import com.ctrip.vac.tool.winupload.common.IOCVUtils;
+import com.ctrip.vac.tool.winupload.common.WinUploadCommon;
+import com.ctrip.vac.tool.winupload.dataschema.meta.DataSchema;
+import org.apache.commons.dbutils.DbUtils;
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
@@ -9,20 +21,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.commons.dbutils.DbUtils;
-import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.handlers.BeanListHandler;
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-
-import com.ctrip.vac.tool.winupload.common.CsvUtils;
-import com.ctrip.vac.tool.winupload.common.IOCVUtils;
-import com.ctrip.vac.tool.winupload.common.WinUploadCommon;
-import com.ctrip.vac.tool.winupload.dataschema.meta.DataSchema;
 
 public class ServicePage {
 
@@ -89,6 +87,7 @@ public class ServicePage {
 						ds = WinUploadCommon.getDataSchema(file.getName().substring(0,file.getName().lastIndexOf(".")));
 						ds.getDbName();
 					} catch (Exception e) {
+					    e.printStackTrace();
 						return 2;
 					}
 					
